@@ -1,0 +1,20 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Ticket {
+  id         Int          @id
+  quantity   Int
+}
+
+model UserTicket {
+  id       Int    @id @default(autoincrement())
+  userId   Int
+  ticketId Int
+  quantity Int
+}
